@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+	 <div class="page-header">
+        <h1>Admin</h1>
+            <p>Welcome {{ email }}<br/>
+			<a href="/users/logout"><u>Log Out</u></a><br>
+			<a href="/users/alerts"><u>Admin Control Panel</u></a></p> 
+      </div>
+	
+    <form id="edit-wine" action="http://wines.avivavino.com:4996/wines/admin/edit/{{ wine_id }}" method="post">
+	<h2>Edit Wine</h2>
+	<p style="color:#f7f7f7;">id: {{ wine_id }}</p>
+	{% for x in wine %}
+        <div class="form-group">
+            <label for="name">name</label>
+            <input type="text" value="{{ x.name }}" id="name" class="form-control" name="name">
+        </div>
+      <div class="form-group">
+            <label for="country">country</label>
+            <input type="text" value="{{ x.country }}" id="country" class="form-control" name="country">
+        </div>
+
+<div class="form-group">
+            <label for="region">region</label>
+            <input type="text" value="{{ x.region }}" id="region" class="form-control" name="region">
+        </div>
+
+		<div class="form-group">
+            <label for="vintage">vintage</label>
+            <input type="text" value="{{ x.vintage }}" id="vintage" class="form-control" name="vintage">
+        </div>
+<div class="form-group">
+            <label for="awards">awards</label>
+            <input type="text" value="{{ x.awards }}" id="awards" class="form-control" name="awards">
+        </div>
+<div class="form-group">
+            <label for="winery">winery</label>
+            <input type="text" value="{{ x.winery }}" id="winery" class="form-control" name="winery">
+        </div>
+<div class="form-group">
+            <label for="bottle_size">bottle_size</label>
+            <input type="text" value="{{ x.bottle_size }}" id="bottle_size" class="form-control" name="bottle_size">
+        </div>
+<div class="form-group">
+            <label for="bottle_per_case">bottle_per_case</label>
+            <input type="text" value="{{ x.bottle_per_case }}" id="bottle_per_case" class="form-control" name="bottle_per_case">
+        </div>
+<div class="form-group">
+            <label for="tasting_note">tasting_note</label>
+            <input type="text" value="{{ x.tasting_note }}" id="tasting_note" class="form-control" name="tasting_note">
+        </div>
+<div class="form-group">
+            <label for="cs_price1">cs_price1</label>
+            <input type="text" value="{{ x.cs_price1 }}"  id="cs_price1" class="form-control" name="cs_price1">
+        </div>
+<div class="form-group">
+            <label for="cs_price2">cs_price2</label>
+            <input type="text" value="{{ x.cs_price2 }}"  id="cs_price2" class="form-control" name="cs_price2">
+        </div>
+<div class="form-group">
+            <label for="cs_price3">cs_price3</label>
+            <input type="text" value="{{ x.cs_price3 }}"  id="cs_price3" class="form-control" name="cs_price3">
+        </div>
+<div class="form-group">
+            <label for="bot_price1">bot_price1</label>
+            <input type="text"  value="{{ x.bot_price1 }}" id="bot_price1" class="form-control" name="bot_price1">
+        </div>
+<div class="form-group">
+            <label for="bot_price2">bot_price2</label>
+            <input type="text" value="{{ x.bot_price2 }}"  id="bot_price2" class="form-control" name="bot_price2">
+        </div>
+<div class="form-group">
+            <label for="bot_price3">bot_price3</label>
+            <input type="text" value="{{ x.bot_price3 }}"  id="bot_price3" class="form-control" name="bot_price3">
+        </div>
+<div class="form-group">
+            <label for="bottle_upcharge">bottle_upcharge</label>
+            <input type="text" value="{{ x.bottle_upcharge }}"  id="bottle_upcharge" class="form-control" name="bottle_upcharge">
+        </div>
+<div class="form-group">
+            <label for="is_new">is_new</label>
+            <input type="text" value="{{ x.is_new }}"  id="is_new" class="form-control" name="is_new">
+        </div>
+<div class="form-group">
+            <label for="new_label">new_label</label>
+            <input type="text" value="{{ x.new_label }}"  id="new_label" class="form-control" name="new_label">
+        </div>
+<div class="form-group">
+            <label for="is_organic">is_organic</label>
+            <input type="text" value="{{ x.is_organic }}"  id="is_organic" class="form-control" name="is_organic">
+        </div>
+<div class="form-group">
+            <label for="is_limited">is_limited</label>
+            <input type="text" value="{{ x.is_limited }}"  id="is_limited" class="form-control" name="is_limited">
+        </div>
+<div class="form-group">
+            <label for="out_stock">out_stock</label>
+            <input type="text" value="{{ x.out_stock }}"  id="out_stock" class="form-control" name="out_stock">
+        </div>
+<div class="form-group">
+            <label for="wine_info">wine_info</label>
+            <input type="text" value="{{ x.wine_info }}"  id="wine_info" class="form-control" name="wine_info">
+        </div>
+<div class="form-group">
+            <label for="appellation">appellation</label>
+            <input type="text" value="{{ x.appellation }}"  id="appellation" class="form-control" name="appellation">
+        </div>
+<div class="form-group">
+            <label for="wine_type">wine_type</label>
+            <input type="text" value="{{ x.wine_type }}"  id="wine_type" class="form-control" name="wine_type">
+        </div>
+<div class="form-group">
+            <label for="variety">variety</label>
+            <input type="text" value="{{ x.variety }}"  id="variety" class="form-control" name="variety">
+        </div>
+<div class="form-group">
+            <label for="aging">aging</label>
+            <input type="text" value="{{ x.aging }}"  id="aging" class="form-control" name="aging">
+        </div>
+<div class="form-group">
+            <label for="alcohol">alcohol</label>
+            <input type="text" value="{{ x.alcohol }}"  id="alcohol" class="form-control" name="alcohol">
+        </div>
+<div class="form-group">
+            <label for="img_url">img_url</label>
+            <input type="text" value="{{ x.img_url }}"  id="img_url" class="form-control" name="img_url">
+        </div>
+
+        <button type="submit" class="btn btn-success">Submit Changes</button>
+    </form>
+</div>{% endfor %}
+{% endblock %}

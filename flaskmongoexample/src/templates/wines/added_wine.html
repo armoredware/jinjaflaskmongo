@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+<div class="page-header">
+        <h1>Admin</h1>
+            <p>Welcome {{ email }}<br/>
+			<a href="/users/logout"><u>Log Out</u></a><br>
+			<a href="/users/alerts"><u>Admin Control Panel</u></a></p> 
+      </div>
+<div class="alert alert-success">Success, a new wine has been added.</div>
+        
+
+</div>
+
+{% endblock %}

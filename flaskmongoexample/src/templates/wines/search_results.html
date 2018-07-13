@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2>Wine Search</h2>
+             <h4 style="color:#f7f7f7;">{{ search_phrase }}</h4>	 
+        <h3>{% for x in wine %}</h3>
+				 <a href="/wines/details/{{ x._id }}"><h3>{{x.name}}</h3></a>
+				<p>Country: {{ x.country }}</p>
+					<hr>
+				
+			{% endfor %}
+</div>
+{% endblock %}

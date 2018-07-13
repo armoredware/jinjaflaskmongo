@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="page-header">
+        <h1>Admin Control Panel</h1>
+            <p>Welcome {{ email }}<br/>
+			<a href="logout"><u>Log Out</u></a></p> 
+        
+    </div>
+   <div>
+   <li><a href="/wines/admin/search">Edit or Remove an Existing Wine</a></li>
+   <li><a href="/wines/admin/new">Add a New Wine</a></li>
+   <li><a href="register">Register New User</a></li>
+   
+   
+   </div>
+{% endblock %}

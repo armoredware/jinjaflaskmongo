@@ -1,0 +1,245 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+        <h1>Admin</h1>
+            <p>Welcome {{ email }}<br/>
+			<a href="/users/logout"><u>Log Out</u></a><br>
+			<a href="/users/alerts"><u>Admin Control Panel</u></a></p> 
+      </div>
+<div class="container page-form">
+						<form id="search-form" action="/wines/admin/search_results" method="post">
+							<div class="form-group">
+							  <h2>Find a Wine to Edit or Remove</h2>
+							</div>
+							<tr>
+								<div class="form-group">
+								<label for="search_phrase">Search Phrase</label>
+								<input type="text" value="" name="search_phrase" id="search_phrase" class="form-control"/>
+								</div>
+
+								<div class="form-group"><label for="search_type">Type</label>
+									<select name="search_type" id="search_type" class="form-control">
+											<option value="select">Select</option>
+											<option value="Red" >Red</option>
+											<option value="White" >White</option>
+											<option value="Rose" >Rose</option>
+											<option value="Sparkling">Sparkling</option>
+											<option value="Sweet">Sweet</option>
+											<option value="Fortified">Fortified</option>
+									</select>
+								</div>
+							<div class="form-group"><label for="vintage">Vintage</label>
+									<select name="search_vintage" id="search_vintage" class="form-control">
+											<option value="select">Select</option>
+											<option value="2016">2016</option>
+											<option value="2015">2015</option>
+											<option value="2014">2014</option>
+											<option value="2013">2013</option>
+											<option value="2012">2012</option>
+											<option value="2011">2011</option>
+											<option value="2010">2010</option>
+											<option value="2009">2009</option>
+											<option value="2008">2008</option>
+											<option value="2007">2007</option>
+											<option value="2006">2006</option>
+											<option value="2005">2005</option>
+											<option value="2004">2004</option>
+											<option value="2003">2003</option>
+											<option value="2002">2002</option>
+											<option value="2001">2001</option>
+											<option value="2000">2000</option>
+											<option value="1999">1999</option>
+											<option value="1998">1998</option>
+											<option value="1997">1997</option>
+											<option value="1996">1996</option>
+											<option value="1995">1995</option>
+											<option value="1994">1994</option>
+											<option value="1993">1993</option>
+											<option value="1992">1992</option>
+											<option value="1991">1991</option>
+											<option value="1990">1990</option>
+									</select>
+								</div>
+								
+								<!--<div class="form-group"><label for="color">Color</label>
+								
+									<select name="search_color" id="search_color" class="form-control">
+											<option value="">Select</option>
+											<option value="Red">Red</option>
+											<option value="Rose">Rose</option>
+											<option value="White">White</option>
+											<option value="Sparkling Red">Sparkling Red</option>
+											<option value="Sparkling Rose">Sparkling Rose</option>
+											<option value="Sparkling White">Sparkling White</option>
+									</select>
+								</div>-->
+							
+							<!--<div class="form-group"><label for="varietal">Varietal</label>
+							
+									<select name="search_varietal" id="search_varietal" class="form-control">
+											<option value="select">Select</option>
+											<option value="Aglianico">Aglianico</option>
+											<option value="Albarino">Albarino</option>
+											<option value="Arneis">Arneis</option>
+											<option value="Bonarda">Bonarda</option>
+											<option value="Bordeaux Blend">Bordeaux Blend</option>
+											<option value="Cabernet Franc">Cabernet Franc</option>
+											<option value="Cabernet Sauvignon">Cabernet Sauvignon</option>
+											<option value="Charmenere">Charmenere</option>
+											<option value="Chardonnay">Chardonnay</option>
+											<option value="Chenin Blanc">Chenin Blanc</option>
+											<option value="Corvina">Corvina</option>
+											<option value="Dolcetto">Dolcetto</option>
+											<option value="Falanghina">Falanghina</option>
+											<option value="Gamay">Gamay</option>
+											<option value="Garganega">Garganega</option>
+											<option value="Grenache Blanc">Grenache Blanc</option>
+											<option value="Grenache/Garnacha">Grenache/Garnacha</option>
+											<option value="Gewurztraminer">Gewurztraminer</option>
+											<option value="Godello">Godello</option>
+											<option value="Grechetto">Grechetto</option>
+											<option value="Gruner Veltliner">Gruner Veltliner</option>
+											<option value="Lagrein">Lagrein</option>
+											<option value="Malbec">Malbec</option>
+											<option value="Mencia">Mencia</option>
+											<option value="Merlot">Merlot</option>
+											<option value="Montepulciano">Montepulciano</option>
+											<option value="Moscatel">Moscatel</option>
+											<option value="Muller Thurgau">Muller Thurgau</option>
+											<option value="Muscadet">Muscadet</option>
+											<option value="Moscato">Moscato</option>
+											<option value="Nebbiolo">Nebbiolo</option>
+											<option value="Negroamaro">Negroamaro</option>
+											<option value="Nero d'Avola">Nero d'Avola</option>
+											<option value="Nero di Troia">Nero di Troia</option>
+											<option value="Ondarrabi Zerratie">Ondarrabi Zerratie</option>
+											<option value="Ondarrabi Zuri">Ondarrabi Zuri</option>
+											<option value="Palomino">Palomino</option>
+											<option value="Pedro Ximenez">Pedro Ximenez</option>
+											<option value="Petit Verdot">Petit Verdot</option>
+											<option value="Petite Sirah">Petite Sirah</option>
+											<option value="Picolit">Picolit</option>
+											<option value="Pinot Blanc">Pinot Blanc</option>
+											<option value="Pinot Gris">Pinot Gris</option>
+											<option value="Pinot Noir">Pinot Noir</option>
+											<option value="Primitivo">Primitivo</option>
+											<option value="Prosecco">Prosecco</option>
+											<option value="Rhone Blend">Rhone Blend</option>
+											<option value="Refosco">Refosco</option>
+											<option value="Riesling">Riesling</option>
+											<option value="Roussanne">Roussanne</option>
+											<option value="Sagrantino">Sagrantino</option>
+											<option value="Sangiovese">Sangiovese</option>
+											<option value="Sauvignon Blanc">Sauvignon Blanc</option>
+											<option value="Schioppettino">Schioppettino</option>
+											<option value="Semillon">Semillon</option>
+											<option value="Shiraz">Shiraz</option>
+											<option value="Silvaner">Silvaner</option>
+											<option value="Syrah">Syrah</option>
+											<option value="Tannat">Tannat</option>
+											<option value="Tempranillo">Tempranillo</option>
+											<option value="Teroldego">Teroldego</option>
+											<option value="Tokay">Tokay</option>
+											<option value="Torrontes">Torrontes</option>
+											<option value="Verdejo">Verdejo</option>
+											<option value="Verdicchio">Verdicchio</option>
+											<option value="Viognier">Viognier</option>
+											<option value="Viura/Macabeo">Viura/Macabeo</option>
+											<option value="Zinfandel">Zinfandel</option>
+											<option value="Zweigelt">Zweigelt</option>
+											<option value="Dona Blanca">Dona Blanca</option>
+											<option value="Monastrell/Mourvedre">Monastrell/Mourvedre</option>
+											<option value="Parellada">Parellada</option>
+											<option value="Trepat">Trepat</option>
+											<option value="Touriga Nacional">Touriga Nacional</option>
+											<option value="Xarel-lo">Xarel-lo</option>
+											<option value="Mazuelo">Mazuelo</option>
+											<option value="Treixadura">Treixadura</option>
+											<option value="Loureira">Loureira</option>
+											<option value="Lado">Lado</option>
+											<option value="Tinto Fino">Tinto Fino</option>
+											<option value="Tinto de Madrid">Tinto de Madrid</option>
+											<option value="Morenillo">Morenillo</option>
+											<option value="Carignan">Carignan</option>
+											<option value="Cinsault">Cinsault</option>
+											<option value="Marsanne">Marsanne</option>
+											<option value="Malvasia">Malvasia</option>
+											<option value="Aragones">Aragones</option>
+											<option value="Trincadeira">Trincadeira</option>
+											<option value="Alforcheiro">Alforcheiro</option>
+											<option value="Encruzado">Encruzado</option>
+											<option value="Tinta Roriz">Tinta Roriz</option>
+											<option value="Gouveio">Gouveio</option>
+											<option value="Touriga Franca">Touriga Franca</option>
+											<option value="Tinta Barroca">Tinta Barroca</option>
+											<option value="Tinta Amarela">Tinta Amarela</option>
+											<option value="Tinta Cao">Tinta Cao</option>
+											<option value="Souzao">Souzao</option>
+											<option value="Pinotage">Pinotage</option>
+											<option value="Muscat d'Alexandrie">Muscat d'Alexandrie</option>
+											<option value="Veenwouden Bordeaux">Veenwouden Bordeaux</option>
+											<option value="Cava Blend">Cava Blend</option>
+											<option value="Campagne Blend">Campagne Blend</option>
+											<option value="Portugese Blend">Portugese Blend</option>
+									</select>
+								</div>-->
+								<div class="form-group"><label for="bottle">Bottle</label>
+							
+									<select name="search_bottle" id="search_bottle" class="form-control">
+											<option value="select">Select</option>
+											<option value="375ml">375ML</option>
+											<option value="750ml">750ML</option>
+											<option value="1.5l">1.5L</option>
+											<option value="3l">3L</option>
+											<option value="5l">5L</option>
+											<option value="6l">6L</option>
+									</select>
+								</div>
+							<div class="form-group"><label for="country">Country</label>
+									<select name="search_country" id="search_country" class="form-control" onChange="show_region(this.value)">
+											<option value="select">Select</option>
+										<option value="Argentina">Argentina</option>
+										<option value="Australia">Australia</option>
+										<option value="Austria">Austria</option>
+										<option value="Chile">Chile</option>
+										<option value="France">France</option>
+										<option value="Germany">Germany</option>
+										<option value="Italy">Italy  </option>
+										<option value="New Zealand">New Zealand</option>
+										<option value="Portgual">Portugal</option>
+										<option value="South Africa">South Africa</option>
+										<option value="Spain">Spain</option>
+										<option value="USA">USA</option>
+										<option value="Uruguay">Uruguay</option>
+									</select>
+								</div>
+								
+								<!--<div class="form-group"><label for="regions">Regions by Country</label>
+										<select class="form-control">
+										<option>Select</option></select>
+								</div>-->
+							<div class="form-group"><label for="bottle_per_case">Bottle per Case</label>
+								<select name="search_case" id="search_case" class="form-control">
+											<option value="select">Select</option>
+											<option value="12">12</option>
+											<option value="10">10</option>
+											<option value="8">8</option>
+											<option value="6">6</option>
+											<option value="4">4</option>
+									</select>
+							</div>
+							 <button type="submit" class="btn btn-xl">Search</button>
+					</form>
+<!--
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" class="form-control" name="email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" name="password">
+        </div>
+
+        <button type="submit" class="btn btn-xl">Search</button>
+    </form> -->
+{% endblock %}

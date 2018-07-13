@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+{% for x in wine %}
+        <h2>{{ x.name }}</h2>
+             <p><img src="http://www.avivavino.com/img/wine/{{ x.img_url }}.jpg" align="right" /> 
+				<strong>Country:</strong> {{ x.country }} <br />
+				<strong>Region:</strong> {{ x.region }} <br />
+				<strong>Vintage:</strong> {{ x.vintage }} <br />
+				<strong>Winery:</strong> {{ x.winery }} <br />
+				<strong>Bottle Size:</strong> {{ x.bottle_size }} <br />
+				<strong>Bottle's Per Case:</strong> {{ x.bottle_per_case }} <br />				
+				<strong>Wine Type:</strong> {{ x.wine_type }} <br />
+				<strong>Variety:</strong> {{ x.variety }} <br />
+				<strong>Aging:</strong> {{ x.aging }} <br />
+				<strong>Alcohol:</strong> {{ x.alcohol }} <br />
+				<strong>Tasting Note / Wine info:</strong> {{ x.wine_info }} <br />
+				{{ x.tasting_note }} <br />
+				{{ x.awards }} <br /></p>
+
+</div>
+{% endfor %}
+{% endblock %}

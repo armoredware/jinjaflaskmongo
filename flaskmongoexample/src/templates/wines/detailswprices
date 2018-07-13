@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+{% for x in wine %}
+        <h2>{{ x.name }}</h2>
+             <p><img src="http://www.avivavino.com/img/wine/{{ x.img_url }}.jpg" align="right" /> 
+				<strong>Country:</strong> {{ x.country }} <br />
+				<strong>Region:</strong> {{ x.region }} <br />
+				<strong>Vintage:</strong> {{ x.vintage }} <br />
+				<strong>Awards:</strong> {{ x.awards }} <br />
+				<strong>Winery:</strong> {{ x.winery }} <br />
+				<strong>Bottle Size:</strong> {{ x.bottle_size }} <br />
+				<strong>Bottle's Per Case:</strong> {{ x.bottle_per_case }} <br />
+				<strong>Tasting Note:</strong> {{ x.tasting_note }} <br />
+				<strong>One Case Price:</strong> {{ x.cs_price1 }} <br />
+				<strong>Two Case Price:</strong> {{ x.cs_price2 }} <br />
+				<strong>Three Case Price:</strong> {{ x.cs_price3 }} <br />
+				<strong>One Bottle Price:</strong> {{ x.bot_price1 }} <br />
+				<strong>Two Bottle Price:</strong> {{ x.bot_price2 }} <br />
+				<strong>Three Bottle Price:</strong> {{ x.bot_price3 }} <br />
+				<strong>Bottle Up-Charge:</strong> {{ x.bottle_upcharge }} <br />
+				<strong>New:</strong> {{ x.is_new }} <br />
+				<strong>New Label:</strong> {{ x.new_label }} <br />
+				<strong>Organic:</strong> {{ x.is_organic }} <br />
+				<strong>Limited Edition:</strong> {{ x.is_limited }} <br />
+				<strong>Out of Stock:</strong> {{ x.out_stock }} <br />
+				<strong>Wine info:</strong> {{ x.wine_info }} <br />
+				<strong>Appellation:</strong> {{ x.appellation }} <br />
+				<strong>Wine Type:</strong> {{ x.wine_type }} <br />
+				<strong>Variety:</strong> {{ x.variety }} <br />
+				<strong>Aging:</strong> {{ x.aging }} <br />
+				<strong>Alcohol:</strong> {{ x.alcohol }} <br />
+				 </p>
+
+</div>
+{% endfor %}
+{% endblock %}
